@@ -39,3 +39,16 @@ texture = ExtResource("4_hff43")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(367.858, 33)
 shape = SubResource("RectangleShape2D_0nidu")
+
+[node name="Enemy1" type="StaticBody2D" parent="."]
+position = Vector2(347, 213)
+scale = Vector2(0.22738, 0.211549)
+script = ExtResource("1_faq31")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy1"]
+position = Vector2(1, -5)
+texture = ExtResource("1_on8bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1"]
+position = Vector2(2, -5)
+shape = SubResource("RectangleShape2D_vgxnr")
