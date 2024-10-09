@@ -13,8 +13,10 @@ config_version=5
 config/name="TimeJumper"
 run/main_scene="res://area1.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

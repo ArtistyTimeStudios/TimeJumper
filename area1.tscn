@@ -12,8 +12,8 @@ size = Vector2(128, 127)
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(192, 574)
-scale = Vector2(2.84, 1)
+position = Vector2(179, 373)
+scale = Vector2(2.81911, 1.32)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(1, -5)
@@ -24,7 +24,7 @@ position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(132, 401)
+position = Vector2(99, 207)
 scale = Vector2(0.279999, 1)
 script = ExtResource("2_iwhi2")
 
