@@ -13,7 +13,7 @@ size = Vector2(128, 127)
 [node name="Node2D" type="Node2D"]
 
 [node name="Platform1" type="StaticBody2D" parent="."]
-position = Vector2(179, 373)
+position = Vector2(184, 318)
 scale = Vector2(2.81911, 1.32)
 script = ExtResource("1_faq31")
 
@@ -26,7 +26,7 @@ position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(77, 224)
+position = Vector2(88, 154)
 scale = Vector2(0.279999, 1)
 script = ExtResource("2_iwhi2")
 
