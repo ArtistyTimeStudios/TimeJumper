@@ -12,16 +12,16 @@ size = Vector2(128, 127)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platform1" type="StaticBody2D" parent="."]
 position = Vector2(179, 373)
 scale = Vector2(2.81911, 1.32)
 script = ExtResource("1_faq31")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform1"]
 position = Vector2(1, -5)
 texture = ExtResource("1_on8bo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
 position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
 
