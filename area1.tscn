@@ -24,7 +24,7 @@ position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(150, 221)
+position = Vector2(308, 224)
 scale = Vector2(0.279999, 1)
 script = ExtResource("2_iwhi2")
 
