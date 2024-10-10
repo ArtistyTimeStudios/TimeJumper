@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=5 format=3 uid="uid://bgc4qofnqmdcf"]
 
-[ext_resource type="Script" path="res://scripts/static_body_2d.gd" id="1_faq31"]
-[ext_resource type="Texture2D" uid="uid://d0ljdo567wsqm" path="res://icon.svg" id="1_on8bo"]
+[ext_resource type="Script" path="res://scripts/static_body_2d.gd" id="1_2pl5c"]
+[ext_resource type="Texture2D" uid="uid://d0ljdo567wsqm" path="res://icon.svg" id="2_amxe1"]
+[ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgxnr"]
 size = Vector2(128, 128)
@@ -11,11 +12,11 @@ size = Vector2(128, 128)
 [node name="Platform1" type="StaticBody2D" parent="."]
 position = Vector2(184, 318)
 scale = Vector2(2.81911, 1.32)
-script = ExtResource("1_faq31")
+script = ExtResource("1_2pl5c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform1"]
 position = Vector2(1, -5)
-texture = ExtResource("1_on8bo")
+texture = ExtResource("2_amxe1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
 position = Vector2(2, -5)
@@ -24,12 +25,16 @@ shape = SubResource("RectangleShape2D_vgxnr")
 [node name="Enemy1" type="StaticBody2D" parent="."]
 position = Vector2(347, 213)
 scale = Vector2(0.22738, 0.211549)
-script = ExtResource("1_faq31")
+script = ExtResource("1_2pl5c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy1"]
 position = Vector2(1, -5)
-texture = ExtResource("1_on8bo")
+texture = ExtResource("2_amxe1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1"]
 position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
+
+[node name="Player" parent="." instance=ExtResource("3_picvo")]
+position = Vector2(144, 226)
+scale = Vector2(4.08, 4.08)
