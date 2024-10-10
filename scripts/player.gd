@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 60.0
 const JUMP_VELOCITY = -300.0
 const LEFT_MOUSE_BUTTON = 1  # Left mouse button is represented by the integer value 1
 var is_jumping = false  # Track if the character is jumping
@@ -15,11 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true  # Set jumping flag to true
 
-	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	# Move to the right all the time.
+	velocity.x = SPEED
 
 	move_and_slide()
