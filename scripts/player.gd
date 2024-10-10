@@ -5,8 +5,6 @@ const JUMP_VELOCITY = -300.0
 const LEFT_MOUSE_BUTTON = 1  # Left mouse button is represented by the integer value 1
 var is_jumping = false  # Track if the character is jumping
 
-
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
