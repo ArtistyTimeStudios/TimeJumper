@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=15 format=3 uid="uid://bgc4qofnqmdcf"]
 
 [ext_resource type="Texture2D" uid="uid://cibxpo1f1svai" path="res://assets/template/sprites/world_tileset.png" id="1_5y67o"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sv26r"]
@@ -7,6 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://hyikq6rk1gay" path="res://scenes/coin.tscn" id="4_8ea4n"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
 [ext_resource type="FontFile" uid="uid://c7bh6qrgvpbgh" path="res://assets/template/fonts/PixelOperator8.ttf" id="7_ken8r"]
+
+[sub_resource type="GDScript" id="GDScript_0on5d"]
+script/source = "extends Label
+
+# Speed of movement
+var speed: float = 40.0 # Adjust this value to change the speed of the movement
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	# Update the position by moving it to the right
+	position.x += speed * delta
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gu0du"]
 texture = ExtResource("1_5y67o")
@@ -214,8 +230,9 @@ offset_right = 301.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("7_ken8r")
 theme_override_font_sizes/font_size = 8
-text = "SCORE  X"
+text = "SCORE  "
 autowrap_mode = 2
+script = SubResource("GDScript_0on5d")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yscxi")
