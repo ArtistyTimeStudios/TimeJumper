@@ -1,8 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgc4qofnqmdcf"]
 
-[ext_resource type="Script" path="res://scripts/static_body_2d.gd" id="1_2pl5c"]
 [ext_resource type="Texture2D" uid="uid://d0ljdo567wsqm" path="res://icon.svg" id="2_amxe1"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
+
+[sub_resource type="GDScript" id="GDScript_3h1mx"]
+script/source = "extends StaticBody2D
+
+
+var speed = 100  # Adjust this value to control the speed
+var direction = -1  # -1 for left, 1 for right
+
+func _physics_process(delta):
+	position.x += speed * direction * delta
+	if position.x < 0 or position.x > get_viewport().get_size().x:
+		direction *= -1  # Reverse direction
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgxnr"]
 size = Vector2(128, 128)
@@ -12,26 +24,13 @@ size = Vector2(128, 128)
 [node name="Platform1" type="StaticBody2D" parent="."]
 position = Vector2(184, 318)
 scale = Vector2(2.81911, 1.32)
-script = ExtResource("1_2pl5c")
+script = SubResource("GDScript_3h1mx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform1"]
 position = Vector2(1, -5)
 texture = ExtResource("2_amxe1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
-position = Vector2(2, -5)
-shape = SubResource("RectangleShape2D_vgxnr")
-
-[node name="Enemy1" type="StaticBody2D" parent="."]
-position = Vector2(347, 213)
-scale = Vector2(0.22738, 0.211549)
-script = ExtResource("1_2pl5c")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy1"]
-position = Vector2(1, -5)
-texture = ExtResource("2_amxe1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1"]
 position = Vector2(2, -5)
 shape = SubResource("RectangleShape2D_vgxnr")
 
