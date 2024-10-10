@@ -2,7 +2,8 @@ extends Area2D
 
 
 
-@onready var game_manager = %GameManager
+@onready var game_manager: Node = %GameManager
+
 @onready var animation_player = $AnimationPlayer
 
 

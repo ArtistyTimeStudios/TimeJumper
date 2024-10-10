@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cts16t7c1mxy7" path="res://scenes/platform.tscn" id="3_1bqwm"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
 [ext_resource type="PackedScene" uid="uid://hyikq6rk1gay" path="res://scenes/coin.tscn" id="4_8ea4n"]
-[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="5_ntwdv"]
+[ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
 [ext_resource type="FontFile" uid="uid://c7bh6qrgvpbgh" path="res://assets/template/fonts/PixelOperator8.ttf" id="7_ken8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gu0du"]
@@ -249,7 +249,7 @@ libraries = {
 autoplay = "move"
 
 [node name="Coin" parent="." instance=ExtResource("4_8ea4n")]
-position = Vector2(217, 233)
+position = Vector2(-13, 80)
 
 [node name="Killzone" parent="." instance=ExtResource("5_ntwdv")]
 position = Vector2(186, 324)
