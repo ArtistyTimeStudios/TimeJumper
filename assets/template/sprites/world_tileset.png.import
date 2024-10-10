@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c265x71yynonf"
-path="res://.godot/imported/Zrzut ekranu 2024-10-09 214607.png-d352a1aae2e456603a6e9de00195b74f.ctex"
+uid="uid://cibxpo1f1svai"
+path="res://.godot/imported/world_tileset.png-8697e852dc2fd974aae1bbd5dc3be971.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Zrzut ekranu 2024-10-09 214607.png"
-dest_files=["res://.godot/imported/Zrzut ekranu 2024-10-09 214607.png-d352a1aae2e456603a6e9de00195b74f.ctex"]
+source_file="res://assets/template/sprites/world_tileset.png"
+dest_files=["res://.godot/imported/world_tileset.png-8697e852dc2fd974aae1bbd5dc3be971.ctex"]
 
 [params]
 
