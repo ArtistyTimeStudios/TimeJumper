@@ -1,30 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=8 format=3 uid="uid://bgc4qofnqmdcf"]
 
 [ext_resource type="Texture2D" uid="uid://cibxpo1f1svai" path="res://assets/template/sprites/world_tileset.png" id="1_5y67o"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sv26r"]
-[ext_resource type="PackedScene" uid="uid://cts16t7c1mxy7" path="res://scenes/platform.tscn" id="3_1bqwm"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
 [ext_resource type="PackedScene" uid="uid://hyikq6rk1gay" path="res://scenes/coin.tscn" id="4_8ea4n"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
-[ext_resource type="FontFile" uid="uid://c7bh6qrgvpbgh" path="res://assets/template/fonts/PixelOperator8.ttf" id="7_ken8r"]
 
-[sub_resource type="GDScript" id="GDScript_0on5d"]
-script/source = "extends Label
-
-# Speed of movement
-var speed: float = 40.0 # Adjust this value to change the speed of the movement
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	# Update the position by moving it to the right
-	position.x += speed * delta
-"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gu0du"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hb5ry"]
 texture = ExtResource("1_5y67o")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -173,74 +154,24 @@ texture = ExtResource("1_5y67o")
 2:4/size_in_atlas = Vector2i(3, 3)
 2:4/0 = 0
 3:7/0 = 0
+3:3/0 = 0
+4:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yscxi"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gu0du")
-
-[sub_resource type="Animation" id="Animation_8dlki"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(96, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_77oxb"]
-resource_name = "mobe"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(238, 177), Vector2(188, 171)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2lbey"]
-_data = {
-"RESET": SubResource("Animation_8dlki"),
-"move": SubResource("Animation_77oxb")
-}
+sources/0 = SubResource("TileSetAtlasSource_hb5ry")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_sv26r")
-
-[node name="Scorelabel" type="Label" parent="GameManager"]
-offset_left = 241.0
-offset_top = 157.0
-offset_right = 301.0
-offset_bottom = 181.0
-theme_override_fonts/font = ExtResource("7_ken8r")
-theme_override_font_sizes/font_size = 8
-text = "SCORE  "
-autowrap_mode = 2
-script = SubResource("GDScript_0on5d")
-
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-8, 5)
 tile_set = SubResource("TileSet_yscxi")
 format = 2
-layer_0/name = "MID"
-layer_0/tile_data = PackedInt32Array(983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 1048583, 0, 1, 1048584, 0, 1, 1114120, 0, 1, 1114119, 0, 1, 1114121, 0, 1, 1048585, 0, 1, 1114122, 65536, 0, 1114123, 0, 1, 1048587, 65536, 0, 1048588, 65536, 0, 1048586, 0, 1, 983051, 0, 0, 1114125, 65536, 1, 1114126, 65536, 1, 1048590, 65536, 1, 1048591, 65536, 1, 1048589, 0, 1, 1114124, 0, 1, 1114127, 0, 1, 1048592, 0, 1, 786447, 0, 3, 851983, 0, 4, 917519, 0, 5, 851977, 196608, 7, 917513, 196608, 8, 720905, 131072, 4, 917518, 458752, 5, 983058, 131072, 0, 1114130, 196608, 0, 1114131, 131072, 1, 1048595, 196608, 0, 1048594, 196608, 0, 1048596, 196608, 0, 1114132, 196608, 0, 983059, 131072, 0, 983060, 131072, 0, 983061, 589824, 1, 983062, 655360, 1, 983063, 720896, 1, 983064, 131072, 0, 983065, 131072, 0, 983066, 131072, 0, 917530, 131072, 0, 917531, 131072, 0, 917532, 131072, 0, 1048603, 196608, 0, 983067, 196608, 0, 983068, 196608, 0, 1048604, 196608, 0, 1048602, 196608, 0, 1114138, 196608, 0, 1114137, 196608, 0, 1048601, 131072, 1, 1048600, 131072, 1, 1114136, 131072, 1, 1179672, 131072, 1, 1179673, 131072, 1, 1179674, 131072, 1, 1179675, 131072, 1, 1114139, 131072, 1, 1114140, 131072, 1, 1048593, 196608, 1, 1114129, 196608, 1, 1179665, 196608, 1, 1179664, 196608, 1, 1114128, 196608, 1, 1179663, 196608, 1, 1179667, 131072, 1, 1179666, 131072, 1, 1179668, 131072, 1)
-layer_1/name = "Background"
-layer_1/tile_data = PackedInt32Array(1179649, 0, 14, 1245185, 0, 15, 1179650, 0, 14, 1245186, 0, 15, 1179651, 0, 14, 1245187, 0, 15, 1179652, 0, 14, 1245188, 0, 15, 1179653, 0, 14, 1245189, 0, 15, 1179654, 0, 14, 1245190, 0, 15, 1179655, 0, 14, 1245191, 0, 15, 1179656, 0, 14, 1245192, 0, 15, 1179657, 0, 14, 1245193, 0, 15, 1179658, 0, 14, 1245194, 0, 15, 1179659, 0, 14, 1245195, 0, 15, 1179660, 0, 14, 1245196, 0, 15, 1179661, 0, 14, 1245197, 0, 15, 1179662, 0, 14, 1245198, 0, 15, 1179663, 0, 14, 1245199, 0, 15, 1179664, 0, 14, 1245200, 0, 15, 1179665, 0, 14, 1245201, 0, 15, 1179666, 0, 14, 1245202, 0, 15, 1179667, 0, 14, 1245203, 0, 15, 1179668, 0, 11, 1245204, 0, 12, 1179669, 0, 11, 1245205, 0, 12, 1179670, 0, 11, 1245206, 0, 12, 1179671, 0, 11, 1245207, 0, 12, 1179672, 0, 11, 1245208, 0, 12, 1179673, 0, 14, 1245209, 0, 15, 1179674, 0, 14, 1245210, 0, 15, 1179675, 0, 14, 1245211, 0, 15, 1179676, 0, 14, 1245212, 0, 15, 1179677, 0, 14, 1245213, 0, 15, 1179678, 0, 14, 1245214, 0, 15, 1179679, 0, 14, 1245215, 0, 15, 1179680, 0, 14, 1245216, 0, 15, 1179681, 0, 14, 1245217, 0, 15, 1179682, 0, 14, 1245218, 0, 15, 1179683, 0, 14, 1245219, 0, 15, 1048597, 0, 9, 1114133, 0, 10, 1048598, 0, 9, 1114134, 0, 10, 1048599, 0, 9, 1114135, 0, 10, 1310740, 0, 13, 1310741, 0, 13, 1310742, 0, 13, 1310743, 0, 13, 1310744, 0, 13)
+layer_0/name = "Background"
+layer_1/name = "MID"
+layer_1/tile_data = PackedInt32Array(983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 1048583, 0, 1, 1048584, 0, 1, 1114120, 0, 1, 1114119, 0, 1, 1114121, 0, 1, 1048585, 0, 1, 1114122, 65536, 0, 1114123, 0, 1, 1048587, 65536, 0, 1048588, 65536, 0, 1048586, 0, 1, 983051, 0, 0, 1114125, 65536, 1, 1114126, 65536, 1, 1048590, 65536, 1, 1048591, 65536, 1, 1048589, 0, 1, 1114124, 0, 1, 1114127, 0, 1, 1048592, 0, 1, 786447, 0, 3, 851983, 0, 4, 917519, 0, 5, 851977, 196608, 7, 917513, 196608, 8, 720905, 131072, 4, 917518, 458752, 5, 983058, 0, 0, 1114130, 196608, 0, 1114131, 131072, 1, 1048595, 196608, 0, 1048594, 196608, 0, 1048596, 196608, 0, 1114132, 196608, 0, 983059, 0, 0, 983060, 0, 0, 983061, 589824, 1, 983062, 655360, 1, 983063, 720896, 1, 983064, 131072, 0, 983065, 131072, 0, 983066, 131072, 0, 917530, 131072, 0, 917531, 131072, 0, 917532, 131072, 0, 1048603, 196608, 0, 983067, 196608, 0, 983068, 196608, 0, 1048604, 196608, 0, 1048602, 196608, 0, 1114138, 196608, 0, 1114137, 196608, 0, 1048601, 131072, 1, 1048600, 131072, 1, 1114136, 131072, 1, 1179672, 131072, 1, 1179673, 131072, 1, 1179674, 131072, 1, 1179675, 131072, 1, 1114139, 131072, 1, 1114140, 131072, 1, 1048593, 196608, 1, 1114129, 196608, 1, 1179665, 196608, 1, 1179664, 196608, 1, 1114128, 196608, 1, 1179663, 196608, 1, 1179667, 131072, 1, 1179666, 131072, 1, 1179668, 131072, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_picvo")]
 position = Vector2(186, 240)
@@ -253,23 +184,13 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 
-[node name="Platform" parent="." instance=ExtResource("3_1bqwm")]
-position = Vector2(281, 223)
-
-[node name="Platform2" parent="." instance=ExtResource("3_1bqwm")]
-position = Vector2(96, 245)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
-libraries = {
-"": SubResource("AnimationLibrary_2lbey")
-}
-autoplay = "move"
-
-[node name="Coin" parent="." instance=ExtResource("4_8ea4n")]
-position = Vector2(-13, 80)
-
 [node name="Killzone" parent="." instance=ExtResource("5_ntwdv")]
 position = Vector2(186, 324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_6bw7p")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("4_8ea4n")]
+position = Vector2(211, 232)
