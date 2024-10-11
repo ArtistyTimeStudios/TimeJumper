@@ -45,18 +45,13 @@ size = Vector2(11, 13)
 [node name="Enemy" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 12)
 sprite_frames = SubResource("SpriteFrames_l20lu")
 autoplay = "default"
-frame_progress = 0.468575
+frame_progress = 0.821678
 
 [node name="Killzone" parent="AnimatedSprite2D" instance=ExtResource("2_rnq2y")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ok2t8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_ok2t8")
-
-[node name="SpawnEnemyTimer" type="Timer" parent="."]
