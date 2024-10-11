@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
-[ext_resource type="PackedScene" uid="uid://bv4rdle0ynkj2" path="res://scenes/enemy.tscn" id="4_lpaye"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_lpaye"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="5_qmpey"]
 
