@@ -6,7 +6,7 @@ extends Node2D
 
 var moving = false
 
-@onready var sprite: Sprite2D = $"Sprite2D"
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $"Timer"
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 	timer.one_shot = true
 	timer.start()
 	# Hide the enemy initially
-	sprite.visible = false
+	AnimatedSprite2D.visible = false
 
 func _process(delta):
 	if moving:
@@ -27,5 +27,5 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	# Make the enemy appear and start moving
-	sprite.visible = true
+	AnimatedSprite2D.visible = true
 	moving = true
