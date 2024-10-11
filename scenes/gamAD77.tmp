@@ -30,3 +30,5 @@ shape = SubResource("WorldBoundaryShape2D_6bw7p")
 [node name="ChunkGenerator" type="Node2D" parent="."]
 position = Vector2(0, 293)
 script = ExtResource("3_0bg5p")
+chunk_length = null
+generation_threshold = null

@@ -1,17 +1,19 @@
 extends Node2D
 
-# Path to the chunk scene
-const CHUNK_GEN = preload("res://scenes/chunk_gen.tscn")
+# Path to the chunk scenes
+const CHUNK_GEN_1 = preload("res://scenes/chunk_gen1.tscn")
+const CHUNK_GEN_2 = preload("res://scenes/chunk_gen2.tscn")
 
 # Exported variables
 @export var chunk_length: int = 16 # Length of each chunk in tiles
 @export var generation_threshold: int = 2 # Number of chunks ahead of the player to generate
 
-@onready var player: CharacterBody2D = $"../Player" # Use 'onready' without '@'
+@onready var player: CharacterBody2D = $"../Player" # Correct usage of 'onready'
 
 var last_generated_chunk = 0 # Keeps track of the last generated chunk index
 
 func _ready():
+	randomize() # Ensure different random results each time the game runs
 	# Generate initial chunks
 	generate_chunk(0)
 
@@ -24,12 +26,13 @@ func _process(delta):
 		generate_chunk(last_generated_chunk + 1)
 
 func generate_chunk(chunk_index):
-	# Create a new instance of the chunk scene
-	if CHUNK_GEN == null:
-		print("CHUNK_GEN is not assigned.")
-		return
+	# Randomly choose between CHUNK_GEN_1 and CHUNK_GEN_2
+	var selected_chunk = CHUNK_GEN_1
+	if randi() % 2 == 0:
+		selected_chunk = CHUNK_GEN_2
 
-	var new_chunk = CHUNK_GEN.instantiate()
+	# Create a new instance of the selected chunk scene
+	var new_chunk = selected_chunk.instantiate()
 
 	# Position the new chunk based on its index
 	new_chunk.position = Vector2(chunk_index * chunk_length * 16, 0)
