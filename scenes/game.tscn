@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=7 format=3 uid="uid://bgc4qofnqmdcf"]
 
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
+[ext_resource type="PackedScene" uid="uid://bv4rdle0ynkj2" path="res://scenes/enemy.tscn" id="4_lpaye"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="5_qmpey"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
@@ -30,3 +32,7 @@ shape = SubResource("WorldBoundaryShape2D_6bw7p")
 [node name="ChunkGenerator" type="Node2D" parent="."]
 position = Vector2(0, 293)
 script = ExtResource("3_0bg5p")
+
+[node name="Enemy" parent="." instance=ExtResource("4_lpaye")]
+position = Vector2(301, 278)
+script = ExtResource("5_qmpey")
