@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=8 format=3 uid="uid://bgc4qofnqmdcf"]
 
 [ext_resource type="PackedScene" uid="uid://bc31pw4fh8cx" path="res://scenes/ui.tscn" id="2_bi2ff"]
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
 [ext_resource type="PackedScene" uid="uid://bljr7m8gto13i" path="res://scenes/parallax_background.tscn" id="4_e3c7o"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
+[ext_resource type="PackedScene" uid="uid://bv4rdle0ynkj2" path="res://scenes/enemy.tscn" id="6_ynh1q"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
@@ -40,3 +41,6 @@ position = Vector2(-200, 50)
 script = ExtResource("3_0bg5p")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_e3c7o")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_ynh1q")]
+position = Vector2(60, 29)
