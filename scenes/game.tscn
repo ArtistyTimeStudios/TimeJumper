@@ -21,7 +21,7 @@ script = ExtResource("1_xwrx3")
 position = Vector2(-25, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(25, -25)
+position = Vector2(45, -25)
 zoom = Vector2(3, 3)
 limit_bottom = 320
 limit_smoothed = true
