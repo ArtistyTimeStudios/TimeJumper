@@ -1,28 +1,34 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgc4qofnqmdcf"]
 
+[ext_resource type="PackedScene" uid="uid://bc31pw4fh8cx" path="res://scenes/ui.tscn" id="2_bi2ff"]
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
-[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_lpaye"]
+[ext_resource type="PackedScene" uid="uid://bljr7m8gto13i" path="res://scenes/parallax_background.tscn" id="4_e3c7o"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="5_qmpey"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_picvo")]
-position = Vector2(179, 246)
+position = Vector2(-25, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(90, -18)
+position = Vector2(25, -25)
 zoom = Vector2(3, 3)
 limit_bottom = 320
 limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 10.0
+
+[node name="UI" parent="Player/Camera2D" instance=ExtResource("2_bi2ff")]
+offset_left = -33.0
+offset_top = -66.0
+offset_right = -33.0
+offset_bottom = -66.0
+scale = Vector2(0.24, 0.24)
 
 [node name="Killzone" parent="." instance=ExtResource("5_ntwdv")]
-position = Vector2(255, 317)
+position = Vector2(0, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_6bw7p")
@@ -30,9 +36,7 @@ shape = SubResource("WorldBoundaryShape2D_6bw7p")
 [node name="Coins" type="Node" parent="."]
 
 [node name="ChunkGenerator" type="Node2D" parent="."]
-position = Vector2(0, 293)
+position = Vector2(-200, 50)
 script = ExtResource("3_0bg5p")
 
-[node name="Enemy" parent="." instance=ExtResource("4_lpaye")]
-position = Vector2(301, 278)
-script = ExtResource("5_qmpey")
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_e3c7o")]
