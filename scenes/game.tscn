@@ -38,9 +38,6 @@ shape = SubResource("WorldBoundaryShape2D_6bw7p")
 [node name="Coins" type="Node" parent="."]
 script = ExtResource("4_2o7vp")
 
-[node name="SpawnTimer" type="Timer" parent="Coins"]
-autostart = true
-
 [node name="ChunkGenerator" type="Node2D" parent="."]
 position = Vector2(-200, 50)
 script = ExtResource("3_0bg5p")
@@ -54,7 +51,5 @@ script = ExtResource("6_hi6lc")
 autostart = true
 
 [connection signal="ready" from="Player/Camera2D" to="Player" method="_on_camera_2d_ready"]
-[connection signal="ready" from="Coins/SpawnTimer" to="Spawner" method="_on_spawn_timer_ready"]
-[connection signal="timeout" from="Coins/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="ready" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_ready"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
