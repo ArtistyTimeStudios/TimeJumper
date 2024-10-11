@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 60.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -300.0
 const LEFT_MOUSE_BUTTON = 1  # Left mouse button is represented by the integer value 1
 var is_jumping = false  # Track if the character is jumping
 
