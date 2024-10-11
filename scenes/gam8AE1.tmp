@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgc4qofnqmdcf"]
 
-[ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
+[ext_resource type="PackedScene" uid="uid://b6hsx8v835uc2" path="res://scenes/chunk_gen.tscn" id="3_c5j6f"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
 
@@ -9,11 +9,11 @@
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_picvo")]
-position = Vector2(179, 246)
+position = Vector2(186, 240)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(46, -16)
-zoom = Vector2(3, 3)
+zoom = Vector2(0.5, 0.5)
 limit_bottom = 320
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -27,6 +27,5 @@ shape = SubResource("WorldBoundaryShape2D_6bw7p")
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="ChunkGenerator" type="Node2D" parent="."]
-position = Vector2(0, 293)
-script = ExtResource("3_0bg5p")
+[node name="ChunkGen" parent="." instance=ExtResource("3_c5j6f")]
+position = Vector2(143, 244)
