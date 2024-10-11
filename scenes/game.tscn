@@ -41,7 +41,7 @@ position = Vector2(0, 100)
 shape = SubResource("WorldBoundaryShape2D_6bw7p")
 
 [node name="ChunkGenerator" type="Node2D" parent="."]
-position = Vector2(-200, 40)
+position = Vector2(-200, 0)
 script = ExtResource("3_0bg5p")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_e3c7o")]

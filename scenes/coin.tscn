@@ -75,21 +75,21 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v78qs"]
-radius = 5.0
+radius = 6.0
 
 [node name="Coin" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_meyad")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
 scale = Vector2(0.112963, 0.112963)
 sprite_frames = SubResource("SpriteFrames_0r4as")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame = 6
-frame_progress = 0.112092
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -6)
 shape = SubResource("CircleShape2D_v78qs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

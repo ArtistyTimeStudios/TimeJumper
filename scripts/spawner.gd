@@ -15,28 +15,38 @@ var max_spawn_time: float = 3.0 # Maximum wait time between spawns (in seconds)
 func _ready():
 	# Seed the random number generator
 	randomize()
-	spawn_timer.wait_time = 1.0 # Initial spawn time, but will randomize after first spawn
+	spawn_timer.wait_time = 0.1 # Initial spawn time, but will randomize after first spawn
 	spawn_timer.start()
 
 # This function is called whenever the spawn timer times out
 func _on_spawn_timer_timeout():
 	var camera_position = camera_2d.global_position
-	# Declare and generate random spacing between enemies
-	var min_spacing: int = 200 # Minimum distance between enemies
-	var max_spacing: int = 600 # Maximum distance between enemies
-	# Generate random spacing between enemies using the global min_spacing and max_spacing
-	var random_spacing = randi_range(min_spacing, max_spacing) # Generates a random integer within the specified range
-	# Set the spawn position with Y fixed at 0
-	var spawn_position = Vector2(camera_position.x + spawn_distance + random_spacing, 0)
-	# Create an instance of the enemy scene and add it to the current scene
-	var new_enemy = Enemy_1.instantiate()
-	add_child(new_enemy)
-	new_enemy.global_position = spawn_position
-	# Keep track of enemies spawned
-	enemies_spawned.append(new_enemy)
-	# Randomize the spawn timer for the next enemy
+	var min_spacing: int = 200  # Minimum distance between spawns
+	var max_spacing: int = 600  # Maximum distance between spawns
+	var random_spacing = randi_range(min_spacing, max_spacing)
+	# Common spawn X position
+	var spawn_x_position = camera_position.x + spawn_distance + random_spacing
+
+	# Decide whether to spawn a coin or an enemy
+	if randf() < 0.2:  # 20% chance to spawn a coin
+		# Adjust the Y position to spawn above the ground level
+		var ground_y_position = 1  # Adjust this based on your actual ground level in the game
+		var offset_above_ground = randf_range(0, 60)  # Random height above ground
+		var random_y_position = ground_y_position - offset_above_ground
+		var spawn_position = Vector2(spawn_x_position, random_y_position)
+		var new_coin = COIN.instantiate()
+		add_child(new_coin)
+		new_coin.global_position = spawn_position
+	else:  # 80% chance to spawn an enemy
+		var spawn_position = Vector2(spawn_x_position, 1)  # Enemies always spawn at Y = 1
+		var new_enemy = Enemy_1.instantiate()
+		add_child(new_enemy)
+		new_enemy.global_position = spawn_position
+		enemies_spawned.append(new_enemy)
+
+	# Randomize the spawn timer for the next spawn
 	spawn_timer.wait_time = randf_range(min_spawn_time, max_spawn_time)
-	spawn_timer.start() # Restart the timer to apply the new wait time
+	spawn_timer.start()
 
 # This function is called every frame to update the game state
 func _process(_delta):
