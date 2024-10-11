@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy3epad1qiy2v"]
+[gd_scene load_steps=3 format=3 uid="uid://cy3epad1qiy2v"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_sq5j8"]
+[ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="2_k260m"]
 
 [node name="Options_menu" type="Control"]
 layout_mode = 3
@@ -24,14 +25,20 @@ layout_mode = 2
 
 [node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k260m")
+theme_override_font_sizes/font_size = 24
 text = "Volume"
 
 [node name="Music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k260m")
+theme_override_font_sizes/font_size = 24
 text = "Music"
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k260m")
+theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_play_pressed"]

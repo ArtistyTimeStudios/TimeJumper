@@ -3,6 +3,7 @@ extends Node2D
 # Path to the chunk scenes
 const CHUNK_GEN_1 = preload("res://scenes/chunk_gen1.tscn")
 const CHUNK_GEN_2 = preload("res://scenes/chunk_gen2.tscn")
+@onready var spawn_timer: Timer = $"../Spawner/SpawnTimer"
 
 # Exported variables
 @export var chunk_length: int = 16 # Length of each chunk in tiles
@@ -17,7 +18,7 @@ func _ready():
 	# Generate initial chunks
 	generate_chunk(0)
 
-func _process(delta):
+func _process(_delta):
 	# Determine which chunk the player is currently in
 	var current_chunk_index = int(player.position.x / (chunk_length * 16))
 

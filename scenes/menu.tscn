@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0hcc2e12epjg"]
+[gd_scene load_steps=3 format=3 uid="uid://0hcc2e12epjg"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_4o0n1"]
+[ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="2_utbg5"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,14 +25,20 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_utbg5")
+theme_override_font_sizes/font_size = 24
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_utbg5")
+theme_override_font_sizes/font_size = 24
 text = "Options"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_utbg5")
+theme_override_font_sizes/font_size = 24
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

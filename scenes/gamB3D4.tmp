@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgc4qofnqmdcf"]
 
-[ext_resource type="Script" path="res://scripts/game_data.gd" id="1_xwrx3"]
 [ext_resource type="PackedScene" uid="uid://bc31pw4fh8cx" path="res://scenes/ui.tscn" id="2_bi2ff"]
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
 [ext_resource type="PackedScene" uid="uid://b2bijsenlihp6" path="res://scenes/player.tscn" id="3_picvo"]
@@ -8,14 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="5_ntwdv"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="6_hi6lc"]
 [ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="7_p4agl"]
+[ext_resource type="PackedScene" uid="uid://hyikq6rk1gay" path="res://scenes/coin.tscn" id="9_pph7p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
 [node name="Game" type="Node2D"]
-
-[node name="GameData" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_xwrx3")
 
 [node name="Player" parent="." instance=ExtResource("3_picvo")]
 position = Vector2(-25, 0)
@@ -64,6 +60,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_p4agl")
 theme_override_font_sizes/font_size = 16
 text = "Tap to jump!"
+
+[node name="Coin" parent="." instance=ExtResource("9_pph7p")]
+position = Vector2(25, -15)
+script = null
 
 [connection signal="ready" from="Player/Camera2D" to="Player" method="_on_camera_2d_ready"]
 [connection signal="ready" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_ready"]

@@ -4,7 +4,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	print("umar")  # Print message for debugging
-	Engine.time_scale = 0.0  # Slow down the game
+	Engine.time_scale = 0.6  # Slow down the game
 	
 	# Check if the body is the player
 	if body.is_in_group("player"):  # Assuming the player is in the "player" group
