@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://decnlwc4touxq"]
+
+[ext_resource type="Script" path="res://scripts/equalizer_1.gd" id="1_8l7ch"]
+[ext_resource type="PackedScene" uid="uid://cfm8xp04iw4ea" path="res://scripts/color_rect.tscn" id="2_h3vdq"]
+
+[node name="Chunkbackgen1" type="Node2D"]
+script = ExtResource("1_8l7ch")
+
+[node name="ColorRect" parent="." instance=ExtResource("2_h3vdq")]

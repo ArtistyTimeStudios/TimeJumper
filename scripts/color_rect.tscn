@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfm8xp04iw4ea"]
+
+[ext_resource type="Shader" path="res://scripts/parallax_background.gdshader" id="1_rvyrx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmjje"]
+shader = ExtResource("1_rvyrx")
+shader_parameter/freq_data = null
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_wmjje")
+offset_top = -92.0
+offset_right = 562.0
+offset_bottom = 106.0
