@@ -4,26 +4,30 @@ const COIN = preload("res://scenes/coin.tscn")
 const Enemy_1 = preload("res://scenes/enemy.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var camera_2d: Camera2D = $"../Player/Camera2D"
-
+@onready var game_data: Node = get_node("/root/Game/GameData")  # Access the game data to check game_over state
 # The distance at which enemies will be spawned ahead of the camera
 var spawn_distance: float = 500.0
 var enemies_spawned: Array = []
-var enemy_speed: float = 100.0 # Speed at which the enemies will move to the left
-var min_spawn_time: float = 1.0 # Minimum wait time between spawns (in seconds)
-var max_spawn_time: float = 3.0 # Maximum wait time between spawns (in seconds)
+var enemy_speed: float = 50.0  # Speed at which the enemies will move to the left
+var min_spawn_time: float = 1.0  # Minimum wait time between spawns (in seconds)
+var max_spawn_time: float = 5.0  # Maximum wait time between spawns (in seconds)
 
 func _ready():
 	# Seed the random number generator
 	randomize()
-	spawn_timer.wait_time = 0.1 # Initial spawn time, but will randomize after first spawn
+	spawn_timer.wait_time = 0.1  # Initial spawn time, but will randomize after first spawn
 	spawn_timer.start()
 
 # This function is called whenever the spawn timer times out
 func _on_spawn_timer_timeout():
+	if game_data.game_over:  # Stop spawning enemies if the game is over
+		return
+
 	var camera_position = camera_2d.global_position
 	var min_spacing: int = 200  # Minimum distance between spawns
 	var max_spacing: int = 600  # Maximum distance between spawns
 	var random_spacing = randi_range(min_spacing, max_spacing)
+	
 	# Common spawn X position
 	var spawn_x_position = camera_position.x + spawn_distance + random_spacing
 
@@ -50,6 +54,9 @@ func _on_spawn_timer_timeout():
 
 # This function is called every frame to update the game state
 func _process(_delta):
+	if game_data.game_over:  # Stop enemy movement when the game is over
+		return
+
 	var camera_position = camera_2d.global_position
 	for enemy in enemies_spawned:
 		# Move the enemy to the left
@@ -59,7 +66,3 @@ func _process(_delta):
 		if enemy.global_position.x < camera_position.x - spawn_distance * 2:
 			enemies_spawned.erase(enemy)
 			enemy.queue_free()
-
-
-func _on_spawn_timer_ready() -> void:
-	pass # Replace with function body.

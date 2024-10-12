@@ -11,7 +11,3 @@ func _on_body_entered(_body: Node2D):
 	#print("Coin collected")
 	#animation_player.play("pickup")  # Play pickup animation
 	queue_free()  # Remove the coin
-
-#y_entered(body):
-#	game_manager.add_point()
-#	animation_player.play("pickup")

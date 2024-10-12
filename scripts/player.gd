@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 60.0
+const BASE_SPEED = 60.0
 const JUMP_VELOCITY = -300.0
 var is_jumping = false  # Track if the character is jumping
 var is_alive = true  # Manage if the player is alive
+var current_speed = BASE_SPEED  # This will be adjusted when points increase
+var last_score_checkpoint = 0  # Track when the speed was last increased
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var game_data: Node = get_node("/root/Game/GameData")  # Reference to GameData for score
 
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -22,8 +26,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			is_jumping = true  # Play jump animation when jumping
 
-		# Move to the right all the time.
-		velocity.x = SPEED
+		# Increase speed based on score.
+		check_speed_increase()
+
+		# Move to the right all the time, with updated speed.
+		velocity.x = current_speed
 
 		# Apply movement and handle animations.
 		move_and_slide()
@@ -35,3 +42,13 @@ func _physics_process(delta: float) -> void:
 func die():
 	is_alive = false
 	animated_sprite.play("death")
+
+# Function to check if the player should speed up based on score
+func check_speed_increase():
+	# Access the current score from the GameData node (assumes GameData has a 'score' variable)
+	var current_score = game_data.score
+	
+	# Check if the score has increased by 200 points since the last speed increase
+	if current_score >= last_score_checkpoint + 200:
+		current_speed += 10.0  # Increase speed by 20 (or adjust this value as needed)
+		last_score_checkpoint = current_score  # Update the checkpoint to the current score
