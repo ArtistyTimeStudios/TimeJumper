@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64xhpshkxmcs"
-path="res://.godot/imported/clockhero.png-5637cc333809fdbabefed7fd3779c5d9.ctex"
+uid="uid://ybrlcaqirnig"
+path="res://.godot/imported/jump.png-3dbc7999c6ae3445588bd4e2733ed604.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/clockhero.png"
-dest_files=["res://.godot/imported/clockhero.png-5637cc333809fdbabefed7fd3779c5d9.ctex"]
+source_file="res://assets/sprites/jump.png"
+dest_files=["res://.godot/imported/jump.png-3dbc7999c6ae3445588bd4e2733ed604.ctex"]
 
 [params]
 

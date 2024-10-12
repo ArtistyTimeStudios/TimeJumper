@@ -1,10 +1,12 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
+@onready var animated_sprite: AnimatedSprite2D = get_node("/root/Game/Player/AnimatedSprite2D")
 
 func _on_body_entered(body: Node2D) -> void:
 	print("umar")  # Print message for debugging
-	Engine.time_scale = 0.6  # Slow down the game
+	Engine.time_scale = 0.4  # Slow down the game\
+	animated_sprite.play("death")
 	
 	# Check if the body is the player
 	if body.is_in_group("player"):  # Assuming the player is in the "player" group
