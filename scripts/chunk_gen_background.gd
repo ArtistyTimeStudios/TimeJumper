@@ -1,8 +1,7 @@
 extends Node2D
 
-# Path to the chunk scenes
+# Path to the chunk scene
 const CHUNK_GEN_1 = preload("res://scenes/chunk_background1.tscn")
-const CHUNK_GEN_2 = preload("res://scenes/chunk_background2.tscn")
 @onready var spawn_timer: Timer = $"../Spawner/SpawnTimer"
 
 # Exported variables
@@ -27,10 +26,8 @@ func _process(_delta):
 		generate_chunk(last_generated_chunk + 1)
 
 func generate_chunk(chunk_index):
-	# Randomly choose between CHUNK_GEN_1 and CHUNK_GEN_2
+	# Always use CHUNK_GEN_1
 	var selected_chunk = CHUNK_GEN_1
-	if randi() % 2 == 0:
-		selected_chunk = CHUNK_GEN_2
 
 	# Create a new instance of the selected chunk scene
 	var new_chunk = selected_chunk.instantiate()

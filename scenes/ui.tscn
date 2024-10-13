@@ -34,12 +34,15 @@ text = "SCORE
 0"
 horizontal_alignment = 1
 
-[node name="DeathLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
+[node name="HighScore" type="Label" parent="."]
 layout_mode = 2
+offset_left = -158.0
+offset_top = 510.0
+offset_right = 64.0
+offset_bottom = 530.0
+scale = Vector2(1.48603, 1.48603)
 theme_override_fonts/font = ExtResource("2_y1rr2")
-text = "SCORE
-0"
+text = "HIGHSCORE: 0"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
