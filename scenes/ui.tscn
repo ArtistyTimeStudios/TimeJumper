@@ -22,6 +22,7 @@ scale = Vector2(1.9976, 1.99517)
 layout_mode = 2
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y1rr2")
 theme_override_font_sizes/font_size = 24

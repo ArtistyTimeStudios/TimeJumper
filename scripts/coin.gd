@@ -13,8 +13,7 @@ func _on_body_entered(_body: Node2D):
 	game_data.add_point()  # Call add_point on the game data node
 	coin_sprite.visible = false  # Immediately make the coin invisible
 	coin_sprite.queue_free()  # Remove the coin (AnimatedSprite2D) from the scene
-	
 	plus_100_sprite.visible = true  # Make the +100 AnimatedSprite visible
-	plus_100_sprite.play("show")  # Play the animation for +100
+	#plus_100_sprite.play("show")  # Play the animation for +100
 	await get_tree().create_timer(2.0).timeout  # Wait for 2 seconds
 	plus_100_sprite.visible = false  # Make the +100 AnimatedSprite invisible again

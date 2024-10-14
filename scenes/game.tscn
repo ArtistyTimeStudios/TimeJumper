@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/chunk_gen_background.gd" id="6_60llu"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="6_hi6lc"]
 [ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="7_p4agl"]
-[ext_resource type="AudioStream" uid="uid://72xyknh1d4ow" path="res://assets/template/music/minimal-techno-random-basic-1-18079.mp3" id="10_fonnj"]
+[ext_resource type="PackedScene" uid="uid://cag6muhxyjggk" path="res://scenes/Sound.tscn" id="10_vaw1j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
@@ -47,17 +47,13 @@ position = Vector2(-200, 0)
 script = ExtResource("3_0bg5p")
 
 [node name="ChunkGenBack" type="Node2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2(60, -53)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("6_60llu")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ChunkGenBack"]
-stream = ExtResource("10_fonnj")
-autoplay = true
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_e3c7o")]
-visible = false
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource("6_hi6lc")
@@ -77,6 +73,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_p4agl")
 theme_override_font_sizes/font_size = 16
 text = "Tap to jump!"
+
+[node name="Sound" parent="." instance=ExtResource("10_vaw1j")]
 
 [connection signal="ready" from="Player/Camera2D" to="Player" method="_on_camera_2d_ready"]
 [connection signal="ready" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_ready"]

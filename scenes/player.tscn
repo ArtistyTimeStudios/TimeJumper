@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2bijsenlihp6"]
+[gd_scene load_steps=20 format=3 uid="uid://b2bijsenlihp6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jde7m"]
 [ext_resource type="Texture2D" uid="uid://iqvvbld1kuim" path="res://assets/sprites/walk.png" id="2_emd4o"]
 [ext_resource type="Texture2D" uid="uid://b6sv3klrq0mui" path="res://assets/sprites/death.png" id="2_iibwu"]
 [ext_resource type="Texture2D" uid="uid://ybrlcaqirnig" path="res://assets/sprites/jump.png" id="3_a1ea5"]
+[ext_resource type="AudioStream" uid="uid://beywv62lxsb7k" path="res://assets/Sound/swing-whoosh-110410.mp3" id="5_shhst"]
+[ext_resource type="AudioStream" uid="uid://b455d0s3cvve5" path="res://assets/Sound/running-14658.mp3" id="6_kak4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb0lm"]
 atlas = ExtResource("2_iibwu")
@@ -119,3 +121,12 @@ frame_progress = 0.00488518
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_svwdx")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_shhst")
+volume_db = 7.275
+
+[node name="run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kak4w")
+volume_db = 7.275
+parameters/looping = true
