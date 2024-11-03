@@ -6,11 +6,12 @@ var is_jumping = false  # Track if the character is jumping
 var is_alive = true  # Manage if the player is alive
 var current_speed = BASE_SPEED  # This will be adjusted when points increase
 var last_score_checkpoint = 0  # Track when the speed was last increased
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game_data: Node = get_node("/root/Game/GameData")  # Reference to GameData for score
 @onready var jump: AudioStreamPlayer = $jump
 @onready var run: AudioStreamPlayer = $run
-
+@onready var died: AudioStreamPlayer = $died
 func _physics_process(delta: float) -> void:
 	if is_alive:
 		# Add gravity.
@@ -36,13 +37,10 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO  # Stop all movement
 		move_and_slide()  # This will ensure any remaining motion is halted
 		
-func _signal():
-	if is_alive:
-		emit_signal("player_alive")
-	else:
-		emit_signal("player_died")
+
 # Function to handle death
 func die():
+	died.play()
 	is_alive = false
 	animated_sprite.play("death")
 

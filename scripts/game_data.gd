@@ -1,6 +1,7 @@
 extends Node
 
 @onready var score_label: Control = $"../Player/Camera2D/UI/MarginContainer/VBoxContainer/ScoreLabel"
+@onready var player: CharacterBody2D = $"../Player"
 
 var score = 0
 var time_passed = 0.0  # Keeps track of the elapsed time

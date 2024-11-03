@@ -1,9 +1,12 @@
 extends Node
-@onready var player: Node = get_node("/root/Game/Player/")
 @onready var bcmusic: AudioStreamPlayer = $BCmusic
+@onready var player: CharacterBody2D = $"../Player"
 
-func _on_Player_died():
-	bcmusic.stop()  # Stop the music when the player dies
+# Play background music
+func play_music():
+	if not bcmusic.playing:
+		bcmusic.play()
 
-func _on_Player_alive():
-	bcmusic.play()  # Play the music when the player is alive
+# Stop background music
+func stop_music():
+	bcmusic.stop()

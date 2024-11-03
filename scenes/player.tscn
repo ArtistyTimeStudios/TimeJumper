@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2bijsenlihp6"]
+[gd_scene load_steps=21 format=3 uid="uid://b2bijsenlihp6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jde7m"]
 [ext_resource type="Texture2D" uid="uid://iqvvbld1kuim" path="res://assets/sprites/walk.png" id="2_emd4o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ybrlcaqirnig" path="res://assets/sprites/jump.png" id="3_a1ea5"]
 [ext_resource type="AudioStream" uid="uid://beywv62lxsb7k" path="res://assets/Sound/swing-whoosh-110410.mp3" id="5_shhst"]
 [ext_resource type="AudioStream" uid="uid://b455d0s3cvve5" path="res://assets/Sound/running-14658.mp3" id="6_kak4w"]
+[ext_resource type="AudioStream" uid="uid://dyv52qfml5jv5" path="res://assets/Sound/belt-snap-82527.mp3" id="7_70gtd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb0lm"]
 atlas = ExtResource("2_iibwu")
@@ -130,3 +131,6 @@ volume_db = 7.275
 stream = ExtResource("6_kak4w")
 volume_db = 7.275
 parameters/looping = true
+
+[node name="died" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_70gtd")

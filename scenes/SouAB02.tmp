@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cag6muhxyjggk"]
+
+[ext_resource type="Script" path="res://scripts/sound_manager.gd" id="1_71dlc"]
+[ext_resource type="AudioStream" uid="uid://bj3jitckfimmh" path="res://assets/Sound/vodka-hardbass-153014.mp3" id="2_abxa7"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_71dlc")
+
+[node name="BCmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_abxa7")
+volume_db = -8.47
+autoplay = true
+parameters/looping = false
+
+[connection signal="ready" from="BCmusic" to="." method="_on_hardbass_bc_ready"]

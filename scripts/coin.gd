@@ -15,7 +15,7 @@ func _on_body_entered(_body: Node2D):
 	# Play coin collect sound
 	coin_collect.play()  # Play the coin collection sound effect
 	
-	coin_sprite.visible = false  # Immediately make the coin invisible
+	#coin_sprite.visible = false  # Immediately make the coin invisible
 	coin_sprite.queue_free()  # Remove the coin (AnimatedSprite2D) from the scene
 	
 	plus_100_sprite.visible = true  # Make the +100 AnimatedSprite visible
