@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv4rdle0ynkj2"]
+[gd_scene load_steps=10 format=3 uid="uid://bv4rdle0ynkj2"]
 
 [ext_resource type="Texture2D" uid="uid://cand05ob6h3be" path="res://assets/template/sprites/slime_green.png" id="1_aigxe"]
 [ext_resource type="PackedScene" uid="uid://c6qwnb67w4yo1" path="res://scenes/killzone.tscn" id="2_rnq2y"]
+[ext_resource type="Script" path="res://scenes/EnemySprite.gd" id="2_wjhwb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu17l"]
 atlas = ExtResource("1_aigxe")
@@ -49,6 +50,7 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_l20lu")
 autoplay = "default"
 frame_progress = 0.821678
+script = ExtResource("2_wjhwb")
 
 [node name="Killzone" parent="AnimatedSprite2D" instance=ExtResource("2_rnq2y")]
 

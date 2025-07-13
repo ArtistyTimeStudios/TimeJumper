@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bl75lt6pt7u8p"]
+[gd_scene load_steps=4 format=4 uid="uid://b8kwlu4pu7si6"]
 
-[ext_resource type="Texture2D" uid="uid://cibxpo1f1svai" path="res://assets/template/sprites/world_tileset.png" id="1_jlyvn"]
+[ext_resource type="Texture2D" uid="uid://cibxpo1f1svai" path="res://assets/template/sprites/world_tileset.png" id="1_e8m8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15vr5"]
-texture = ExtResource("1_jlyvn")
+texture = ExtResource("1_e8m8r")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc31pw4fh8cx"]
+[gd_scene load_steps=4 format=3 uid="uid://bc31pw4fh8cx"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_6klxd"]
 [ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="2_y1rr2"]
+[ext_resource type="Script" path="res://scenes/pause.gd" id="3_wc6vo"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -22,11 +23,11 @@ scale = Vector2(1.9976, 1.99517)
 layout_mode = 2
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_y1rr2")
 theme_override_font_sizes/font_size = 24
 text = "Menu"
+script = ExtResource("3_wc6vo")
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

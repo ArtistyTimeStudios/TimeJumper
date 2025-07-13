@@ -115,9 +115,8 @@ script = ExtResource("1_jde7m")
 position = Vector2(0, -12)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_lbpfr")
-animation = &"death"
+animation = &"jump"
 autoplay = "walk"
-frame_progress = 0.00488518
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)

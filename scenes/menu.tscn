@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0hcc2e12epjg"]
+[gd_scene load_steps=4 format=3 uid="uid://0hcc2e12epjg"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_4o0n1"]
 [ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="2_utbg5"]
+[ext_resource type="Texture2D" uid="uid://cjcq0yys3tcyy" path="res://assets/images/blurBG.png" id="3_dit76"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,12 +13,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4o0n1")
 
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 185.0
+offset_bottom = 185.0
+scale = Vector2(2.24, 2.24)
+texture = ExtResource("3_dit76")
+expand_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 35.0
-offset_top = 50.0
+offset_top = 105.0
 offset_right = 202.0
-offset_bottom = 250.0
+offset_bottom = 305.0
 scale = Vector2(2, 2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -30,6 +41,7 @@ theme_override_font_sizes/font_size = 24
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_utbg5")
 theme_override_font_sizes/font_size = 24
