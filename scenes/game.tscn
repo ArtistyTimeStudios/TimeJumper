@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgc4qofnqmdcf"]
+[gd_scene load_steps=13 format=3 uid="uid://bgc4qofnqmdcf"]
 
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_j11us"]
 [ext_resource type="Script" path="res://scripts/game_data.gd" id="1_xwrx3"]
 [ext_resource type="PackedScene" uid="uid://bc31pw4fh8cx" path="res://scenes/ui.tscn" id="2_bi2ff"]
 [ext_resource type="Script" path="res://scripts/chunk_gen.gd" id="3_0bg5p"]
@@ -14,6 +15,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bw7p"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_j11us")
 
 [node name="GameData" type="Node" parent="."]
 unique_name_in_owner = true
@@ -24,6 +26,7 @@ position = Vector2(-25, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(45, -25)
+offset = Vector2(0, 5)
 zoom = Vector2(3, 3)
 limit_bottom = 320
 limit_smoothed = true
@@ -31,9 +34,9 @@ position_smoothing_speed = 10.0
 
 [node name="UI" parent="Player/Camera2D" instance=ExtResource("2_bi2ff")]
 offset_left = -33.0
-offset_top = -66.0
+offset_top = -55.0
 offset_right = -33.0
-offset_bottom = -66.0
+offset_bottom = -55.0
 scale = Vector2(0.24, 0.24)
 
 [node name="Killzone" parent="." instance=ExtResource("5_ntwdv")]

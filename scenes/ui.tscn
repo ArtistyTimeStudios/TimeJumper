@@ -36,6 +36,7 @@ text = "SCORE
 horizontal_alignment = 1
 
 [node name="HighScore" type="Label" parent="."]
+visible = false
 layout_mode = 2
 offset_left = -158.0
 offset_top = 510.0
