@@ -13,7 +13,9 @@ config_version=5
 config/name="TimeJumper"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/image="res://assets/icon/LOGO-3.png"
+boot_splash/image="res://assets/icon/App Icon3splsh.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://assets/icon/App Icon2.png"
 
 [display]
