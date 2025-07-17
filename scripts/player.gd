@@ -12,6 +12,11 @@ var last_score_checkpoint = 0  # Track when the speed was last increased
 @onready var jump: AudioStreamPlayer = $jump
 @onready var run: AudioStreamPlayer = $run
 @onready var died: AudioStreamPlayer = $died
+
+func _ready():
+	sound_manager.play_game_music()
+
+
 func _physics_process(delta: float) -> void:
 	if is_alive:
 		# Add gravity.

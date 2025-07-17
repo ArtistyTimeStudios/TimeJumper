@@ -1,12 +1,12 @@
 extends Control
 
 func _ready() -> void:
-	# Na wszelki wypadek odznacz pauzę, gdy wrócisz z gry
 	get_tree().paused = false
+	sound_manager.stop_all_music()
+	sound_manager.play_menu_music()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		print("UI_CANCEL PRESSED")
 		get_tree().quit()
 
 func _on_play_pressed() -> void:

@@ -19,6 +19,10 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://assets/icon/App Icon2.png"
 
+[autoload]
+
+sound_manager="*res://scenes/Sound.tscn"
+
 [display]
 
 window/size/viewport_width=400

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy3epad1qiy2v"]
+[gd_scene load_steps=4 format=3 uid="uid://cy3epad1qiy2v"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_sq5j8"]
+[ext_resource type="Texture2D" uid="uid://cjcq0yys3tcyy" path="res://assets/images/blurBG.png" id="2_ahkgm"]
 [ext_resource type="FontFile" uid="uid://phmy040tptwk" path="res://assets/template/fonts/PixelOperator8-Bold.ttf" id="2_k260m"]
 
 [node name="Options_menu" type="Control"]
@@ -12,22 +13,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sq5j8")
 
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 185.0
+offset_bottom = 185.0
+scale = Vector2(2.24, 2.24)
+texture = ExtResource("2_ahkgm")
+expand_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 190.0
-offset_bottom = 250.0
-scale = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_k260m")
-theme_override_font_sizes/font_size = 24
-text = "Volume"
 
 [node name="Music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -35,13 +41,28 @@ theme_override_fonts/font = ExtResource("2_k260m")
 theme_override_font_sizes/font_size = 24
 text = "Music"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Minus" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="Volume" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50
+"
+
+[node name="Plus" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "+"
+
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k260m")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_exit_pressed"]
