@@ -43,6 +43,7 @@ theme_override_font_sizes/font_size = 24
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_utbg5")
 theme_override_font_sizes/font_size = 24
